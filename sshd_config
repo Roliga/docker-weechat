@@ -1,0 +1,21 @@
+# Use host keys in /etc/ssh/keys directory
+HostKey /etc/ssh/keys/ssh_host_rsa_key
+HostKey /etc/ssh/keys/ssh_host_dsa_key
+HostKey /etc/ssh/keys/ssh_host_ecdsa_key
+HostKey /etc/ssh/keys/ssh_host_ed25519_key
+
+# Only authorize against public keys in /etc/ssh/keys/authorized_keys
+AuthorizedKeysFile /etc/ssh/keys/authorized_keys
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+
+# Only allow user "weechat"
+PermitRootLogin no
+AllowUsers weechat
+AllowGroups weechat
+
+# Disable unused features
+AllowAgentForwarding no
+AllowTcpForwarding no
+X11Forwarding no
+PermitTunnel no
