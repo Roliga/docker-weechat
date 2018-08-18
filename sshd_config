@@ -16,6 +16,6 @@ AllowGroups weechat
 
 # Disable unused features
 AllowAgentForwarding no
-AllowTcpForwarding no
+AllowTcpForwarding local
 X11Forwarding no
 PermitTunnel no
