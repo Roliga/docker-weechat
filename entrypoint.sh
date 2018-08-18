@@ -11,7 +11,6 @@ if [ "$(id -u weechat)" -ne "$UID" ] || [ "$(id -g weechat)" -ne "$GID" ]; then
 	adduser -u "$UID" -D -S -h /var/lib/weechat -s /bin/sh -G weechat weechat
 	passwd -d weechat
 
-	chown weechat:weechat /run/weechat_stderr.fifo
 	chown weechat:weechat /var/lib/weechat
 fi
 
@@ -23,7 +22,6 @@ for keyType in rsa dsa ecdsa ed25519; do
 done
 
 # Start services in the background, and kill this process group if one of them exits
-{ su -c 'cat /run/weechat_stderr.fifo' weechat; kill 0; } &
 { su -c '/usr/local/bin/weechat-tmux.sh' weechat; kill 0; } &
 { /usr/sbin/sshd -D -e; kill 0; } &
 

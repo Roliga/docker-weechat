@@ -36,9 +36,6 @@ RUN  addgroup -g "$GID" -S weechat \
 	&& passwd -d weechat \
 	&& chown weechat:weechat /var/lib/weechat
 
-RUN mkfifo /run/weechat_stderr.fifo \
-	&& chown weechat:weechat /run/weechat_stderr.fifo
-
 VOLUME /var/lib/weechat
 VOLUME /etc/ssh/keys
 
